@@ -120,9 +120,9 @@ current_t = 0.0
 initialize_mass_points()
 
 iterations = int(framerate * 5 * 1.5) + 1
-output_dir = "output"
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
+output_dir = "./output"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 video_manager = ti.tools.VideoManager(output_dir=output_dir, framerate=framerate, automatic_build=False)
 
 for f in range(iterations):
@@ -160,9 +160,9 @@ new_mp4 = os.path.join(output_dir, "physical_simulation.mp4")
 old_gif = os.path.join(output_dir, "video.gif")
 new_gif = os.path.join(output_dir, "physical_simulation.gif")
 
-if os.path.exists(old_file):
+if os.path.exists(old_mp4):
     os.rename(old_mp4, new_mp4)
+if os.path.exists(old_gif):
     os.rename(old_gif, new_gif)
 
-
-print(f'Videos exported to {output_dir}/')
+print(f"Videos exported to '{output_dir}'")
